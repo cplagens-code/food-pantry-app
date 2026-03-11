@@ -2,71 +2,122 @@
 <html>
 <head>
 <title>Food Pantry Recipe Finder</title>
+
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background: #f7f4ee;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #e9eef5);
     margin: 0;
     padding: 0;
 }
 
 .container {
-    max-width: 760px;
-    margin: 60px auto;
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 45px;
     background: white;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     text-align: center;
 }
 
 h1 {
-    color: #2c3e50;
+    font-size: 36px;
+    color: #00274C;
     margin-bottom: 10px;
 }
 
-p {
-    color: #555;
-    margin-bottom: 18px;
+.subtitle {
+    color: #4b5563;
+    margin-bottom: 30px;
     font-size: 18px;
 }
 
 input[type="text"] {
-    width: 85%;
+    width: 90%;
     padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 15px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    margin-bottom: 16px;
+    box-sizing: border-box;
 }
 
 button {
-    background: #2c7a7b;
+    background: #00274C;
     color: white;
     border: none;
-    padding: 14px 24px;
+    padding: 14px 22px;
+    border-radius: 12px;
     font-size: 16px;
-    border-radius: 10px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 button:hover {
-    background: #245f60;
+    background: #FFCB05;
+    color: #00274C;
+}
+
+.quick-buttons {
+    margin-top: 30px;
+}
+
+.quick-buttons button {
+    background: #f1f5f9;
+    color: #00274C;
+    border: 1px solid #d1d5db;
+    margin: 6px;
+    padding: 10px 16px;
+}
+
+.quick-buttons button:hover {
+    background: #FFCB05;
+    color: #00274C;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.7;
 }
 </style>
+
+<script>
+function quickSearch(keyword) {
+    document.getElementById("keyword").value = keyword;
+}
+</script>
+
 </head>
 <body>
-    <div class="container">
-        <h1>Food Pantry Recipe Finder</h1>
-        <p>Enter pantry ingredients separated by commas</p>
 
-        <form action="/search" method="POST">
-            <input type="text" name="ingredients" placeholder="rice, beans, chicken, tomato" required>
-            <br>
-            <input type="text" name="keyword" placeholder="Optional: soup, pasta, curry, breakfast">
-            <br>
-            <button type="submit">Find Recipes</button>
-        </form>
+<div class="container">
+    <h1>Food Pantry Recipe Finder</h1>
+    <p class="subtitle">Helping users turn pantry staples into meal ideas</p>
+
+    <form action="/search" method="POST">
+        <input type="text" name="ingredients" placeholder="rice, beans, chicken" required>
+        <input id="keyword" type="text" name="keyword" placeholder="Optional: soup, pasta, breakfast">
+        <br>
+        <button type="submit">Find Recipes</button>
+    </form>
+
+    <div class="quick-buttons">
+        <p><strong>Quick meal ideas:</strong></p>
+        <button type="button" onclick="quickSearch('soup')">Soup</button>
+        <button type="button" onclick="quickSearch('pasta')">Pasta</button>
+        <button type="button" onclick="quickSearch('rice')">Rice Bowl</button>
+        <button type="button" onclick="quickSearch('breakfast')">Breakfast</button>
+        <button type="button" onclick="quickSearch('cheap')">Cheap Meals</button>
     </div>
+
+    <div class="footer">
+        Developed by Oakland University William Beaumont School of Medicine<br>
+        in collaboration with the Capuchin Services Center
+    </div>
+</div>
+
 </body>
 </html>
