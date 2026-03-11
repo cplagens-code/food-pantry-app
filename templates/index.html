@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    max-width: 700px;
+    max-width: 760px;
     margin: 60px auto;
     background: white;
     padding: 40px;
@@ -27,17 +27,17 @@ h1 {
 
 p {
     color: #555;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
     font-size: 18px;
 }
 
 input[type="text"] {
-    width: 80%;
+    width: 85%;
     padding: 14px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 button {
@@ -58,10 +58,12 @@ button:hover {
 <body>
     <div class="container">
         <h1>Food Pantry Recipe Finder</h1>
-        <p>Enter ingredients separated by commas</p>
+        <p>Enter pantry ingredients separated by commas</p>
 
         <form action="/search" method="POST">
-            <input type="text" name="ingredients" placeholder="rice, beans, chicken" required>
+            <input type="text" name="ingredients" placeholder="rice, beans, chicken, tomato" required>
+            <br>
+            <input type="text" name="keyword" placeholder="Optional: soup, pasta, curry, breakfast">
             <br>
             <button type="submit">Find Recipes</button>
         </form>

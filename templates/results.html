@@ -18,14 +18,14 @@ h1 {
 .subtitle {
     text-align: center;
     color: #666;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .recipes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto 30px auto;
 }
 
@@ -91,7 +91,10 @@ h1 {
 <body>
 
 <h1>Recipe Results</h1>
-<p class="subtitle">You searched for: {{ ingredients }}</p>
+<p class="subtitle">Ingredients: {{ ingredients }}</p>
+{% if keyword %}
+<p class="subtitle">Meal idea: {{ keyword }}</p>
+{% endif %}
 
 {% if recipes %}
 <div class="recipes-grid">
@@ -102,6 +105,7 @@ h1 {
             <h2>{{ recipe.name }}</h2>
             <p><strong>Category:</strong> {{ recipe.category }}</p>
             <p><strong>Cuisine:</strong> {{ recipe.area }}</p>
+            <p><strong>Match score:</strong> {{ recipe.score }}</p>
             <a href="{{ recipe.link }}" target="_blank">View Recipe</a>
         </div>
     </div>
