@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Recipe Results</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f4ee;
+    margin: 0;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.recipe-content {
+    padding: 18px;
+}
+
+.recipe-content h2 {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.recipe-content p {
+    margin: 6px 0;
+    color: #555;
+}
+
+.recipe-content a {
+    display: inline-block;
+    margin-top: 12px;
+    text-decoration: none;
+    background: #2c7a7b;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+}
+
+.recipe-content a:hover {
+    background: #245f60;
+}
+
+.back-link {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0 auto;
+    text-decoration: none;
+    color: #2c7a7b;
+    font-weight: bold;
+}
+
+.no-results {
+    text-align: center;
+    color: #555;
+    font-size: 18px;
+}
+</style>
+</head>
+<body>
+
+<h1>Recipe Results</h1>
+<p class="subtitle">You searched for: {{ ingredients }}</p>
+
+{% if recipes %}
+<div class="recipes-grid">
+    {% for recipe in recipes %}
+    <div class="recipe-card">
+        <img src="{{ recipe.image }}" alt="{{ recipe.name }}">
+        <div class="recipe-content">
+            <h2>{{ recipe.name }}</h2>
+            <p><strong>Category:</strong> {{ recipe.category }}</p>
+            <p><strong>Cuisine:</strong> {{ recipe.area }}</p>
+            <a href="{{ recipe.link }}" target="_blank">View Recipe</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p class="no-results">No recipes found.</p>
+{% endif %}
+
+<a class="back-link" href="/">Search Again</a>
+
+</body>
+</html>

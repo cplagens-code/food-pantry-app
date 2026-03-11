@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Food Pantry Recipe Finder</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f4ee;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #2c7a7b;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #245f60;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Food Pantry Recipe Finder</h1>
+        <p>Enter ingredients separated by commas</p>
+
+        <form action="/search" method="POST">
+            <input type="text" name="ingredients" placeholder="rice, beans, chicken" required>
+            <br>
+            <button type="submit">Find Recipes</button>
+        </form>
+    </div>
+</body>
+</html>
